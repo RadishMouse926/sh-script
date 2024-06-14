@@ -1,0 +1,148 @@
+// -*- mode: jsonc -*-
+{
+
+
+///////////////////////
+/// Waybar Settings ///
+///////////////////////
+
+"layer": "top", // Waybar on top of other windows
+"position": "top", // top|bottom|left|right
+//"height": 30, // default is auto height
+// "width": 1280, // default is auto width
+"spacing": 8, // Gaps between modules (4px)
+"margin-left": 8,
+"margin-right": 8,
+"margin-top": 8,
+"margin-bottom": 2,
+
+
+////////////////////
+/// Module Order ///
+////////////////////
+
+"modules-left": [
+	"hyprland/workspaces",
+	"cpu",
+	"disk",
+	"temperature"
+],
+"modules-center": [
+	"hyprland/window"
+],
+"modules-right": [
+	//"mpd",
+	"pulseaudio",
+	"network",
+	//"tray",
+	"clock"
+],
+
+
+
+////////////////////////////
+/// Module Configuration ///
+////////////////////////////
+
+// Left Modules
+"hyprland/workspaces": {
+	"warp-on-scroll": false
+},
+
+"cpu": {
+	"format": " {usage}%",
+	"tooltip": false // Tooltip shows utilization % per core
+},
+
+"disk": {
+	"format": " {percentage_used}%",
+	"path": "/home",
+	"tooltip": false
+},
+
+"temperature": {
+	// "thermal-zone": 2,
+	// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+	"critical-threshold": 80,
+	// "format-critical": "{temperatureC}°C {icon}",
+	"format": "{temperatureC}°C {icon}",
+	"format-icons": ["", "", ""],
+	"tooltip": false
+},
+
+
+// Center Modules
+"hyprland/window": {
+	"max-length": 200,
+	"separate-outputs": true
+},
+
+
+
+// Right Modules
+"pulseaudio": {
+	// "scroll-step": 1, // %, can be a float
+	"format": "{volume}% {icon} {format_source}",
+	"format-bluetooth": "{volume}% {icon} {format_source}",
+	"format-bluetooth-muted": " {icon} {format_source}",
+	"format-muted": " {format_source}",
+	"format-source": "{volume}% ",
+	"format-source-muted": "",
+	"format-icons": {
+		"headphone": "",
+		"hands-free": "",
+		"headset": "",
+		"phone": "",
+		"portable": "",
+		"car": "",
+		"default": ["", "", ""]
+	},
+	"on-click": "pavucontrol",
+	"tooltip": false
+},
+
+"network": {
+	"format": "  {ipaddr}",
+	"tooltip": false
+},
+
+"tray": {
+	"icon-size": 21,
+	"spacing": 10,
+	"tooltip": false
+},
+
+"clock": {
+	"timezone": "America/Chicago",
+	"format-alt": "{:%m/%d/%Y}"
+},
+
+"mpd": {
+	"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+	"format-disconnected": "Disconnected ",
+	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+	"unknown-tag": "N/A",
+	"interval": 5,
+	"consume-icons": {
+		"on": " "
+	},
+	"random-icons": {
+		"off": "<span color=\"#f53c3c\"></span> ",
+		"on": " "
+	},
+	"repeat-icons": {
+		"on": " "
+	},
+	"single-icons": {
+		"on": "1 "
+	},
+	"state-icons": {
+		"paused": "",
+		"playing": ""
+	},
+	"tooltip-format": "MPD (connected)",
+	"tooltip-format-disconnected": "MPD (disconnected)"
+}
+
+
+}
