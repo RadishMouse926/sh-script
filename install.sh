@@ -1,6 +1,4 @@
-echo -e "Color\nParallelDownloads = 5" >> /etc/pacman.conf
-
-if [ ! -d "$DIRECTORY" ]; then
+if [ ! -d "~/Desktop" ]; then
   echo "creating user folder directories (Desktop, Documents, etc)"
   pacman -S xdg-user-dirs
   xdg-user-dirs-update
