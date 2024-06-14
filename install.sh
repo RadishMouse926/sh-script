@@ -17,10 +17,10 @@ pacman -S ttf-liberation lib32-mesa lib32-vulkan-radeon
 pacman -S steam
 
 mv ~/.config ~/.config.bak
-cp -r .config ~/.config
+cp -r config ~/.config
 
 mv ~/.bashrc ~/.bashrc.bak
-cp .bashrc ~/.bashrc
+cp bashrc ~/.bashrc
 
 mkdir ~/.local/share/fonts
 cp -r CaskaydiaCoveNF ~/.local/share/fonts/CaskaydiaCoveNF
